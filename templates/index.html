@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bölgesel Sağlık Riski — ABD Eyalet Prototipi</title>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Bölgesel Sağlık Riski — ABD Eyalet Prototipi</h1>
+  <p class="kucuk">Veri: CDC BRFSS (tansiyon ilacı kullanımı, 2017), KFF/CDC WONDER (kalp hastalığı ölüm hızı, 2023), AQLI/Chicago Üniversitesi (PM2.5, 2023). Bu bir fizibilite/yöntem doğrulama prototipidir.</p>
+
+  <h2>Eyalet Haritası</h2>
+  <div id="harita"></div>
+
+  <h2>Eyalet Karşılaştırması</h2>
+  <div class="uyari">Eyalet düzeyindeki göstergeler, 50 eyaletin eşit ağırlıklı ortalamasıyla karşılaştırılır.</div>
+  <form id="form">
+    <label for="eyalet-select">Eyalet</label>
+    <select name="eyalet" id="eyalet-select" required></select>
+    <button type="submit">Eyaleti Karşılaştır</button>
+  </form>
+  <div id="sonuc" aria-live="polite"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
